@@ -1,0 +1,10 @@
+E:\WindownProject\ChatClient\bin\Release\ChatClient.exe.config
+E:\WindownProject\ChatClient\bin\Release\ChatClient.exe
+E:\WindownProject\ChatClient\bin\Release\ChatClient.pdb
+E:\WindownProject\ChatClient\obj\Release\ChatClient.csproj.AssemblyReference.cache
+E:\WindownProject\ChatClient\obj\Release\ChatClient.ClientForm.resources
+E:\WindownProject\ChatClient\obj\Release\ChatClient.Properties.Resources.resources
+E:\WindownProject\ChatClient\obj\Release\ChatClient.csproj.GenerateResource.cache
+E:\WindownProject\ChatClient\obj\Release\ChatClient.csproj.CoreCompileInputs.cache
+E:\WindownProject\ChatClient\obj\Release\ChatClient.exe
+E:\WindownProject\ChatClient\obj\Release\ChatClient.pdb

@@ -1,0 +1,10 @@
+E:\WindownProject\SeverChitChat\bin\Release\SeverChitChat.exe
+E:\WindownProject\SeverChitChat\bin\Release\SeverChitChat.exe.config
+E:\WindownProject\SeverChitChat\obj\Release\ServerChitChat.csproj.AssemblyReference.cache
+E:\WindownProject\SeverChitChat\obj\Release\SeverChitChat.Properties.Resources.resources
+E:\WindownProject\SeverChitChat\obj\Release\SeverChitChat.ServerForm.resources
+E:\WindownProject\SeverChitChat\obj\Release\ServerChitChat.csproj.GenerateResource.cache
+E:\WindownProject\SeverChitChat\obj\Release\ServerChitChat.csproj.CoreCompileInputs.cache
+E:\WindownProject\SeverChitChat\obj\Release\SeverChitChat.exe
+E:\WindownProject\SeverChitChat\obj\Release\SeverChitChat.pdb
+E:\WindownProject\SeverChitChat\bin\Release\SeverChitChat.pdb
