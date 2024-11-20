@@ -3,17 +3,17 @@
   "WorkspaceRootPath": "E:\\WindownProject\\SocketChatServer\\SeverChitChat\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{03BB147F-3F35-45A9-A2EB-35127FD9EC91}|..\\ChatClient\\ChatClient.csproj|e:\\windownproject\\socketchatserver\\chatclient\\clientform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{03BB147F-3F35-45A9-A2EB-35127FD9EC91}|..\\ChatClient\\ChatClient.csproj|e:\\windownproject\\socketchatserver\\chatclient\\clientform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FBD9BCEA-F93C-4E34-947E-F786E9BC412E}|ServerChitChat.csproj|e:\\windownproject\\socketchatserver\\severchitchat\\serverform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FBD9BCEA-F93C-4E34-947E-F786E9BC412E}|ServerChitChat.csproj|solutionrelative:serverform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{03BB147F-3F35-45A9-A2EB-35127FD9EC91}|..\\ChatClient\\ChatClient.csproj|e:\\windownproject\\socketchatserver\\chatclient\\clientform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{03BB147F-3F35-45A9-A2EB-35127FD9EC91}|..\\ChatClient\\ChatClient.csproj|e:\\windownproject\\socketchatserver\\chatclient\\clientform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{03BB147F-3F35-45A9-A2EB-35127FD9EC91}|..\\ChatClient\\ChatClient.csproj|e:\\windownproject\\socketchatserver\\chatclient\\clientform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{FBD9BCEA-F93C-4E34-947E-F786E9BC412E}|ServerChitChat.csproj|E:\\WindownProject\\SocketChatServer\\SeverChitChat\\serverform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBD9BCEA-F93C-4E34-947E-F786E9BC412E}|ServerChitChat.csproj|solutionrelative:serverform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{03BB147F-3F35-45A9-A2EB-35127FD9EC91}|..\\ChatClient\\ChatClient.csproj|e:\\windownproject\\socketchatserver\\chatclient\\iconpickerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 226,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,7 +34,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "ClientForm.cs [Design]",
+              "DocumentMoniker": "E:\\WindownProject\\SocketChatServer\\ChatClient\\ClientForm.cs",
+              "RelativeDocumentMoniker": "..\\ChatClient\\ClientForm.cs",
+              "ToolTip": "E:\\WindownProject\\SocketChatServer\\ChatClient\\ClientForm.cs [Design]",
+              "RelativeToolTip": "..\\ChatClient\\ClientForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T04:41:20.294Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "ServerForm.cs",
               "DocumentMoniker": "E:\\WindownProject\\SocketChatServer\\SeverChitChat\\ServerForm.cs",
               "RelativeDocumentMoniker": "ServerForm.cs",
@@ -42,8 +54,7 @@
               "RelativeToolTip": "ServerForm.cs",
               "ViewState": "AQIAALUAAAAAAAAAAAAqwO8AAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T04:05:45.248Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T04:05:45.248Z"
             },
             {
               "$type": "Document",
@@ -55,8 +66,7 @@
               "RelativeToolTip": "..\\ChatClient\\IconPickerForm.cs",
               "ViewState": "AQIAABkAAAAAAAAAAAAqwEEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T04:01:44.531Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T04:01:44.531Z"
             },
             {
               "$type": "Document",
@@ -66,35 +76,23 @@
               "RelativeDocumentMoniker": "..\\ChatClient\\ClientForm.Designer.cs",
               "ToolTip": "E:\\WindownProject\\SocketChatServer\\ChatClient\\ClientForm.Designer.cs",
               "RelativeToolTip": "..\\ChatClient\\ClientForm.Designer.cs",
-              "ViewState": "AQIAAH4AAAAAAAAAAAAqwIkAAABBAAAA",
+              "ViewState": "AQIAAH8AAAAAAAAAAAAqwIoAAABBAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-20T04:01:31.687Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ClientForm.cs",
               "DocumentMoniker": "E:\\WindownProject\\SocketChatServer\\ChatClient\\ClientForm.cs",
               "RelativeDocumentMoniker": "..\\ChatClient\\ClientForm.cs",
               "ToolTip": "E:\\WindownProject\\SocketChatServer\\ChatClient\\ClientForm.cs",
               "RelativeToolTip": "..\\ChatClient\\ClientForm.cs",
-              "ViewState": "AQIAAAUBAAAAAAAAAAAiwBsBAAA+AAAA",
+              "ViewState": "AQIAADIBAAAAAAAAAAAmwFkBAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-20T03:55:03.306Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ClientForm.cs [Design]",
-              "DocumentMoniker": "E:\\WindownProject\\SocketChatServer\\ChatClient\\ClientForm.cs",
-              "RelativeDocumentMoniker": "..\\ChatClient\\ClientForm.cs",
-              "ToolTip": "E:\\WindownProject\\SocketChatServer\\ChatClient\\ClientForm.cs [Design]",
-              "RelativeToolTip": "..\\ChatClient\\ClientForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T03:54:58.607Z",
-              "EditorCaption": " [Design]"
             }
           ]
         }

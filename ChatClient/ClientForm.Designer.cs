@@ -34,6 +34,7 @@
             this.listBoxMessengerShow = new System.Windows.Forms.ListBox();
             this.labelCurrentChatUserName = new System.Windows.Forms.Label();
             this.buttonpickedIcon = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblNickname
@@ -97,7 +98,7 @@
             this.txtLog.Location = new System.Drawing.Point(276, 15);
             this.txtLog.Name = "txtLog";
             this.txtLog.ReadOnly = true;
-            this.txtLog.Size = new System.Drawing.Size(312, 50);
+            this.txtLog.Size = new System.Drawing.Size(391, 50);
             this.txtLog.TabIndex = 5;
             this.txtLog.Text = "";
             // 
@@ -122,7 +123,7 @@
             // labelCurrentChatUserName
             // 
             this.labelCurrentChatUserName.AutoSize = true;
-            this.labelCurrentChatUserName.Location = new System.Drawing.Point(138, 82);
+            this.labelCurrentChatUserName.Location = new System.Drawing.Point(273, 94);
             this.labelCurrentChatUserName.Name = "labelCurrentChatUserName";
             this.labelCurrentChatUserName.Size = new System.Drawing.Size(172, 16);
             this.labelCurrentChatUserName.TabIndex = 10;
@@ -138,9 +139,19 @@
             this.buttonpickedIcon.UseVisualStyleBackColor = true;
             this.buttonpickedIcon.Click += new System.EventHandler(this.buttonpickedIcon_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(138, 94);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(137, 16);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Bạn đang chít chát với";
+            // 
             // ClientForm
             // 
-            this.ClientSize = new System.Drawing.Size(600, 375);
+            this.ClientSize = new System.Drawing.Size(603, 375);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonpickedIcon);
             this.Controls.Add(this.labelCurrentChatUserName);
             this.Controls.Add(this.listBoxMessengerShow);
@@ -164,5 +175,6 @@
         private System.Windows.Forms.ListBox listBoxMessengerShow;
         private System.Windows.Forms.Label labelCurrentChatUserName;
         private System.Windows.Forms.Button buttonpickedIcon;
+        private System.Windows.Forms.Label label1;
     }
 }
