@@ -8,3 +8,13 @@ E:\WindownProject\ChatClient\obj\Release\ChatClient.csproj.GenerateResource.cach
 E:\WindownProject\ChatClient\obj\Release\ChatClient.csproj.CoreCompileInputs.cache
 E:\WindownProject\ChatClient\obj\Release\ChatClient.exe
 E:\WindownProject\ChatClient\obj\Release\ChatClient.pdb
+E:\WindownProject\SocketChatServer\ChatClient\bin\Release\ChatClient.exe.config
+E:\WindownProject\SocketChatServer\ChatClient\bin\Release\ChatClient.exe
+E:\WindownProject\SocketChatServer\ChatClient\bin\Release\ChatClient.pdb
+E:\WindownProject\SocketChatServer\ChatClient\obj\Release\ChatClient.csproj.AssemblyReference.cache
+E:\WindownProject\SocketChatServer\ChatClient\obj\Release\ChatClient.ClientForm.resources
+E:\WindownProject\SocketChatServer\ChatClient\obj\Release\ChatClient.Properties.Resources.resources
+E:\WindownProject\SocketChatServer\ChatClient\obj\Release\ChatClient.csproj.GenerateResource.cache
+E:\WindownProject\SocketChatServer\ChatClient\obj\Release\ChatClient.csproj.CoreCompileInputs.cache
+E:\WindownProject\SocketChatServer\ChatClient\obj\Release\ChatClient.exe
+E:\WindownProject\SocketChatServer\ChatClient\obj\Release\ChatClient.pdb

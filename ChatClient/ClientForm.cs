@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MiniWord_NgoNgocTrungAnh;
+using System;
 using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Text;
@@ -135,6 +136,48 @@ namespace ChatClient
                                 }
                             }));
                         }
+                        else if (message.StartsWith("DELETE|"))
+                        {
+                            string[] parts = message.Split('|');
+                            if (parts.Length >= 3)
+                            {
+                                string sender = parts[1];
+                                string messageToDelete = parts[2];
+
+                                this.Invoke((Action)(() =>
+                                {
+                                    // Xác định key cho lịch sử chat
+                                    string chatKey = sender;
+
+                                    if (chatHistories.ContainsKey(chatKey))
+                                    {
+                                        // Tìm và xóa tin nhắn tương ứng
+                                        List<string> messagesToRemove = new List<string>();
+                                        foreach (string msg in chatHistories[chatKey])
+                                        {
+                                            if (msg.EndsWith(messageToDelete) ||
+                                                msg == $"{sender}: {messageToDelete}" ||
+                                                msg == $"You: {messageToDelete}")
+                                            {
+                                                messagesToRemove.Add(msg);
+                                            }
+                                        }
+
+                                        foreach (string msg in messagesToRemove)
+                                        {
+                                            chatHistories[chatKey].Remove(msg);
+                                        }
+
+                                        // Cập nhật hiển thị nếu đang ở đúng tab chat
+                                        if (listBoxChatList.SelectedItem?.ToString() == chatKey)
+                                        {
+                                            UpdateChatDisplay(chatKey);
+                                        }
+                                    }
+                                }));
+                            }
+                        }
+
                     }
                     catch
                     {
@@ -211,12 +254,14 @@ namespace ChatClient
         }
 
 
+        // In ClientForm.cs, modify the listBoxMessengerShow_MouseUp method:
         private void listBoxMessengerShow_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right && listBoxMessengerShow.SelectedItem != null)
             {
                 ContextMenu cm = new ContextMenu();
                 MenuItem deleteItem = new MenuItem("Xóa");
+
                 deleteItem.Click += (s, ev) =>
                 {
                     string selectedMessage = listBoxMessengerShow.SelectedItem.ToString();
@@ -224,19 +269,31 @@ namespace ChatClient
 
                     if (currentUser != null && chatHistories.ContainsKey(currentUser))
                     {
-                        chatHistories[currentUser].Remove(selectedMessage);
-                        UpdateChatDisplay(currentUser);
+                        string messageContent;
+                        if (selectedMessage.StartsWith("You: "))
+                        {
+                            messageContent = selectedMessage.Substring("You: ".Length);
+                        }
+                        else if (selectedMessage.Contains(": "))
+                        {
+                            int separatorIndex = selectedMessage.IndexOf(": ");
+                            messageContent = selectedMessage.Substring(separatorIndex + 2);
+                        }
+                        else
+                        {
+                            messageContent = selectedMessage; // Nếu không chứa dấu phân cách, lấy toàn bộ chuỗi
+                        }
 
-                        // Gửi yêu cầu xóa về server (nếu cần)
-                        byte[] deleteCommand = Encoding.UTF8.GetBytes($"DELETE|{currentUser}|{selectedMessage}");
+                        // Gửi lệnh xóa về server
+                        byte[] deleteCommand = Encoding.UTF8.GetBytes($"DELETE|{currentUser}|{nickname}|{messageContent}");
                         clientSocket.Send(deleteCommand);
                     }
                 };
+
                 cm.MenuItems.Add(deleteItem);
                 cm.Show(listBoxMessengerShow, e.Location);
             }
         }
-
         private void btnSend_Click(object sender, EventArgs e)
         {
             if (clientSocket != null && clientSocket.Connected && !string.IsNullOrEmpty(txtMessage.Text))
@@ -270,6 +327,19 @@ namespace ChatClient
             }
         }
 
+        
+        private void buttonpickedIcon_Click(object sender, EventArgs e)
+        {
+            // Mở form IconPickerForm
+            IconPickerForm pickerForm = new IconPickerForm();
+            if (pickerForm.ShowDialog() == DialogResult.OK)
+            {
+                // Nhận emoji đã chọn và thêm vào txtMessage
+                txtMessage.Text += pickerForm.SelectedEmoji;
+                txtMessage.Focus(); // Đặt con trỏ vào txtMessage
+                txtMessage.SelectionStart = txtMessage.Text.Length; // Đặt vị trí con trỏ cuối chuỗi
+            }
+        }
 
     }
 }

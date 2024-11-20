@@ -8,3 +8,13 @@ E:\WindownProject\SeverChitChat\obj\Release\ServerChitChat.csproj.CoreCompileInp
 E:\WindownProject\SeverChitChat\obj\Release\SeverChitChat.exe
 E:\WindownProject\SeverChitChat\obj\Release\SeverChitChat.pdb
 E:\WindownProject\SeverChitChat\bin\Release\SeverChitChat.pdb
+E:\WindownProject\SocketChatServer\SeverChitChat\bin\Release\SeverChitChat.exe.config
+E:\WindownProject\SocketChatServer\SeverChitChat\bin\Release\SeverChitChat.exe
+E:\WindownProject\SocketChatServer\SeverChitChat\bin\Release\SeverChitChat.pdb
+E:\WindownProject\SocketChatServer\SeverChitChat\obj\Release\ServerChitChat.csproj.AssemblyReference.cache
+E:\WindownProject\SocketChatServer\SeverChitChat\obj\Release\SeverChitChat.Properties.Resources.resources
+E:\WindownProject\SocketChatServer\SeverChitChat\obj\Release\SeverChitChat.ServerForm.resources
+E:\WindownProject\SocketChatServer\SeverChitChat\obj\Release\ServerChitChat.csproj.GenerateResource.cache
+E:\WindownProject\SocketChatServer\SeverChitChat\obj\Release\ServerChitChat.csproj.CoreCompileInputs.cache
+E:\WindownProject\SocketChatServer\SeverChitChat\obj\Release\SeverChitChat.exe
+E:\WindownProject\SocketChatServer\SeverChitChat\obj\Release\SeverChitChat.pdb

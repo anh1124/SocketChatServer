@@ -33,6 +33,7 @@
             this.listBoxChatList = new System.Windows.Forms.ListBox();
             this.listBoxMessengerShow = new System.Windows.Forms.ListBox();
             this.labelCurrentChatUserName = new System.Windows.Forms.Label();
+            this.buttonpickedIcon = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblNickname
@@ -79,14 +80,14 @@
             // 
             this.txtMessage.Location = new System.Drawing.Point(137, 304);
             this.txtMessage.Name = "txtMessage";
-            this.txtMessage.Size = new System.Drawing.Size(352, 22);
+            this.txtMessage.Size = new System.Drawing.Size(317, 22);
             this.txtMessage.TabIndex = 6;
             // 
             // btnSend
             // 
-            this.btnSend.Location = new System.Drawing.Point(495, 304);
+            this.btnSend.Location = new System.Drawing.Point(460, 303);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(80, 25);
+            this.btnSend.Size = new System.Drawing.Size(70, 25);
             this.btnSend.TabIndex = 7;
             this.btnSend.Text = "Gửi";
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
@@ -127,9 +128,20 @@
             this.labelCurrentChatUserName.TabIndex = 10;
             this.labelCurrentChatUserName.Text = "labelCurrentChatUserName";
             // 
+            // buttonpickedIcon
+            // 
+            this.buttonpickedIcon.Location = new System.Drawing.Point(537, 304);
+            this.buttonpickedIcon.Name = "buttonpickedIcon";
+            this.buttonpickedIcon.Size = new System.Drawing.Size(38, 23);
+            this.buttonpickedIcon.TabIndex = 11;
+            this.buttonpickedIcon.Text = "😀";
+            this.buttonpickedIcon.UseVisualStyleBackColor = true;
+            this.buttonpickedIcon.Click += new System.EventHandler(this.buttonpickedIcon_Click);
+            // 
             // ClientForm
             // 
             this.ClientSize = new System.Drawing.Size(600, 375);
+            this.Controls.Add(this.buttonpickedIcon);
             this.Controls.Add(this.labelCurrentChatUserName);
             this.Controls.Add(this.listBoxMessengerShow);
             this.Controls.Add(this.listBoxChatList);
@@ -151,5 +163,6 @@
         private System.Windows.Forms.ListBox listBoxChatList;
         private System.Windows.Forms.ListBox listBoxMessengerShow;
         private System.Windows.Forms.Label labelCurrentChatUserName;
+        private System.Windows.Forms.Button buttonpickedIcon;
     }
 }

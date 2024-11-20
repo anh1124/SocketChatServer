@@ -52,6 +52,12 @@
     <Compile Include="ClientForm.Designer.cs">
       <DependentUpon>ClientForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="IconPickerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IconPickerForm.Designer.cs">
+      <DependentUpon>IconPickerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ClientForm.resx">

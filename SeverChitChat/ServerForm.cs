@@ -195,7 +195,49 @@ namespace SeverChitChat
                             }
                         }
                     }
+                    // Xử lý lệnh DELETE
+                    // Trong ServerForm.cs, cập nhật phần xử lý DELETE trong HandleClient:
+                    if (message.StartsWith("DELETE|"))
+                    {
+                        string[] parts = message.Split('|');
+                        if (parts.Length >= 4)
+                        {
+                            string targetUser = parts[1];
+                            string senderNickname = parts[2];
+                            string messageContent = parts[3];
 
+                            // Xóa tin nhắn trong lịch sử trên server
+                            lock (lockObject)
+                            {
+                                if (chatHistories.ContainsKey(targetUser))
+                                {
+                                    string messageToDelete = $"From {senderNickname}: {messageContent}";
+                                    chatHistories[targetUser].Remove(messageToDelete);
+                                }
+                                if (chatHistories.ContainsKey(senderNickname))
+                                {
+                                    string messageToDelete = $"To {targetUser}: {messageContent}";
+                                    chatHistories[senderNickname].Remove(messageToDelete);
+                                }
+                            }
+
+                            // Gửi thông báo xóa cho người nhận
+                            if (connectedClients.ContainsKey(targetUser))
+                            {
+                                string deleteNotification = $"DELETE|{senderNickname}|{messageContent}";
+                                byte[] deleteData = Encoding.UTF8.GetBytes(deleteNotification);
+                                connectedClients[targetUser].Socket.Send(deleteData);
+                            }
+
+                            // Gửi xác nhận xóa cho người gửi
+                            if (connectedClients.ContainsKey(senderNickname))
+                            {
+                                string deleteConfirmation = $"DELETE|{targetUser}|{messageContent}";
+                                byte[] confirmData = Encoding.UTF8.GetBytes(deleteConfirmation);
+                                connectedClients[senderNickname].Socket.Send(confirmData);
+                            }
+                        }
+                    }
                     txtLog.Invoke((Action)(() => txtLog.AppendText($"\n{nickname}: {message}\n")));
                 }
             }
