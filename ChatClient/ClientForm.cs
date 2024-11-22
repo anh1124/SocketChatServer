@@ -307,20 +307,28 @@ namespace ChatClient
         {
             if (clientSocket != null && clientSocket.Connected && !string.IsNullOrEmpty(txtMessage.Text))
             {
+                // Get the current time and format it
+                string timeStamp = DateTime.Now.ToString("HH:mm:ss");
                 string message = txtMessage.Text;
+                string messageWithTime = $"[{timeStamp}] - {message}";
+                
+
                 string targetUser = labelCurrentChatUserName.Text; // Người dùng được hiển thị trên label
 
                 if (!string.IsNullOrEmpty(targetUser))
                 {
+                   
+                    
+
                     // Gửi tin nhắn tới người dùng hoặc server
-                    byte[] messageData = Encoding.UTF8.GetBytes($"CHAT|{targetUser}|{message}");
+                    byte[] messageData = Encoding.UTF8.GetBytes($"CHAT|{targetUser}|{messageWithTime}");
                     clientSocket.Send(messageData);
 
-                    // Lưu vào lịch sử chat
+                    // Lưu vào lịch sử chat (không hiển thị thời gian trong lịch sử chat)
                     if (!chatHistories.ContainsKey(targetUser))
                         chatHistories[targetUser] = new List<string>();
 
-                    chatHistories[targetUser].Add($"You: {message}");
+                    chatHistories[targetUser].Add($"You: {messageWithTime}");  // Only save the message part, not the timestamp
                     UpdateChatDisplay(targetUser);
 
                     txtMessage.Clear();
@@ -336,7 +344,9 @@ namespace ChatClient
             }
         }
 
-        
+
+
+
         private void buttonpickedIcon_Click(object sender, EventArgs e)
         {
             // Mở form IconPickerForm
