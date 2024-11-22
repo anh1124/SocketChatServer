@@ -41,7 +41,7 @@ namespace SeverChitChat
 
             serverSocket.Bind(endPoint);
             serverSocket.Listen(10);
-            txtLog.AppendText("Server đang chạy và lắng nghe kết nối...\n");
+            txtLog.AppendText("\rServer đang chạy và lắng nghe kết nối...\n");
 
             isServerRunning = true; // Đánh dấu server đang chạy
             listenThread = new Thread(ListenForClient);
@@ -66,7 +66,7 @@ namespace SeverChitChat
                 }
                 catch (Exception ex)
                 {
-                    txtLog.Invoke((Action)(() => txtLog.AppendText($"Lỗi khi chấp nhận client: {ex.Message}\n")));
+                    txtLog.Invoke((Action)(() => txtLog.AppendText($"\rLỗi khi chấp nhận client: {ex.Message}\n")));
                 }
             }
         }
@@ -142,6 +142,22 @@ namespace SeverChitChat
             {
                 int receivedBytes = client.Receive(buffer);
                 string nickname = Encoding.UTF8.GetString(buffer, 0, receivedBytes).Replace("NICK|", "");
+                // Kiểm tra trùng lặp tên
+                lock (lockObject)
+                {
+                    string originalNickname = nickname;
+                    int count = 1;
+                    while (connectedClients.ContainsKey(nickname))
+                    {
+                        nickname = $"{originalNickname}{count}";
+                        count++;
+                    }
+                }
+                // Gửi tên đã được sửa đổi về cho client (nếu thay đổi)
+                if (nickname != Encoding.UTF8.GetString(buffer, 0, receivedBytes).Replace("NICK|", ""))
+                {
+                    client.Send(Encoding.UTF8.GetBytes($"UPDATED_NICK|{nickname}"));
+                }
 
                 clientInfo = new ClientInfo
                 {
@@ -158,8 +174,8 @@ namespace SeverChitChat
 
                 txtLog.Invoke((Action)(() =>
                 {
-                    txtLog.AppendText($"\n{nickname} đã kết nối.\n");
-                    txtLog.AppendText($"Hiện có {connectedClients.Count} client đang kết nối.\n");
+                    txtLog.AppendText($"\r\n{nickname} đã kết nối.\n");
+                    txtLog.AppendText($"\rHiện có {connectedClients.Count} client đang kết nối.\n");
                     UpdateClientComboBox();
                 }));
 
@@ -238,13 +254,13 @@ namespace SeverChitChat
                             }
                         }
                     }
-                    txtLog.Invoke((Action)(() => txtLog.AppendText($"\n{nickname}: {message}\n")));
+                    txtLog.Invoke((Action)(() => txtLog.AppendText($"\r\n{nickname}: {message}\n")));
                 }
             }
             catch (Exception ex)
             {
                 txtLog.Invoke((Action)(() =>
-                    txtLog.AppendText($"Lỗi xử lý client: {ex.Message}\n")));
+                    txtLog.AppendText($"\rLỗi xử lý client: {ex.Message}\n")));
             }
             finally
             {
@@ -256,8 +272,8 @@ namespace SeverChitChat
                     }
                     txtLog.Invoke((Action)(() =>
                     {
-                        txtLog.AppendText($"\n{clientInfo.Nickname} đã ngắt kết nối.\n");
-                        txtLog.AppendText($"Hiện có {connectedClients.Count} client đang kết nối.\n");
+                        txtLog.AppendText($"\r\n{clientInfo.Nickname} đã ngắt kết nối.\n");
+                        txtLog.AppendText($"\rHiện có {connectedClients.Count} client đang kết nối.\n");
                         UpdateClientComboBox();
                     }));
                     BroadcastOnlineUsers();
@@ -281,7 +297,7 @@ namespace SeverChitChat
             {
                 // Gửi tin nhắn cho tất cả
                 BroadcastMessage($"SERVER|{serverMessage}");
-                txtLog.AppendText($"[SERVER TO ALL]: {serverMessage}\n");
+                txtLog.AppendText($"\r[SERVER TO ALL]: {serverMessage}\n");
 
                 lock (lockObject)
                 {
@@ -304,7 +320,7 @@ namespace SeverChitChat
                         client.Socket.Send(Encoding.UTF8.GetBytes(privateMessage));
 
                         SaveChatHistory(selectedUser, $"SERVER TO YOU: {serverMessage}");
-                        txtLog.AppendText($"[SERVER TO {selectedUser}]: {serverMessage}\n");
+                        txtLog.AppendText($"\r[SERVER TO {selectedUser}]: {serverMessage}\n");
                     }
                 }
             }
@@ -334,11 +350,11 @@ namespace SeverChitChat
                     connectedClients.Clear();
                 }
 
-                txtLog.AppendText("Server đã dừng.\n");
+                txtLog.AppendText("\rServer đã dừng.\n");
             }
             catch (Exception ex)
             {
-                txtLog.AppendText($"Lỗi khi dừng server: {ex.Message}\n");
+                txtLog.AppendText($"\rLỗi khi dừng server: {ex.Message}\n");
             }
         }
 

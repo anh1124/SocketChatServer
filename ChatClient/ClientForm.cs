@@ -72,8 +72,17 @@ namespace ChatClient
                     {
                         int receivedBytes = clientSocket.Receive(buffer);
                         string message = Encoding.UTF8.GetString(buffer, 0, receivedBytes);
-
-                        if (message.StartsWith("USERLIST|"))
+                        if (message.StartsWith("UPDATED_NICK|"))
+                        {
+                            string updatedNickname = message.Replace("UPDATED_NICK|", "");
+                            this.Invoke((Action)(() =>
+                            {
+                                MessageBox.Show($"Tên bạn đã được đổi thành {updatedNickname} do bị trùng.", "Thông báo");
+                                nickname = updatedNickname;
+                                txtNickname.Text = updatedNickname; // Cập nhật giao diện
+                            }));
+                        }
+                        else if (message.StartsWith("USERLIST|"))
                         {
                             string[] users = message.Replace("USERLIST|", "").Split(',');
                             this.Invoke((Action)(() =>

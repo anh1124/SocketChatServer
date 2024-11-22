@@ -41,7 +41,7 @@
             // 
             this.lblNickname.Location = new System.Drawing.Point(10, 15);
             this.lblNickname.Name = "lblNickname";
-            this.lblNickname.Size = new System.Drawing.Size(70, 20);
+            this.lblNickname.Size = new System.Drawing.Size(69, 20);
             this.lblNickname.TabIndex = 0;
             this.lblNickname.Text = "Nickname:";
             // 
@@ -65,7 +65,7 @@
             // 
             this.lblUsers.Location = new System.Drawing.Point(10, 45);
             this.lblUsers.Name = "lblUsers";
-            this.lblUsers.Size = new System.Drawing.Size(80, 20);
+            this.lblUsers.Size = new System.Drawing.Size(57, 20);
             this.lblUsers.TabIndex = 3;
             this.lblUsers.Text = "Online Users:";
             // 
@@ -123,7 +123,7 @@
             // labelCurrentChatUserName
             // 
             this.labelCurrentChatUserName.AutoSize = true;
-            this.labelCurrentChatUserName.Location = new System.Drawing.Point(273, 94);
+            this.labelCurrentChatUserName.Location = new System.Drawing.Point(273, 95);
             this.labelCurrentChatUserName.Name = "labelCurrentChatUserName";
             this.labelCurrentChatUserName.Size = new System.Drawing.Size(172, 16);
             this.labelCurrentChatUserName.TabIndex = 10;
