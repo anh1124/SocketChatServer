@@ -268,41 +268,33 @@ namespace ChatClient
         {
             if (e.Button == MouseButtons.Right && listBoxMessengerShow.SelectedItem != null)
             {
-                ContextMenu cm = new ContextMenu();
-                MenuItem deleteItem = new MenuItem("Xóa");
+                string selectedMessage = listBoxMessengerShow.SelectedItem.ToString();
 
-                deleteItem.Click += (s, ev) =>
+                // Only show delete option if the message contains "You" (sent by the current user)
+                if (selectedMessage.StartsWith("You: "))
                 {
-                    string selectedMessage = listBoxMessengerShow.SelectedItem.ToString();
-                    string currentUser = listBoxChatList.SelectedItem?.ToString();
+                    ContextMenu cm = new ContextMenu();
+                    MenuItem deleteItem = new MenuItem("Xóa");
 
-                    if (currentUser != null && chatHistories.ContainsKey(currentUser))
+                    deleteItem.Click += (s, ev) =>
                     {
-                        string messageContent;
-                        if (selectedMessage.StartsWith("You: "))
+                        string currentUser = listBoxChatList.SelectedItem?.ToString();
+                        if (currentUser != null && chatHistories.ContainsKey(currentUser))
                         {
-                            messageContent = selectedMessage.Substring("You: ".Length);
-                        }
-                        else if (selectedMessage.Contains(": "))
-                        {
-                            int separatorIndex = selectedMessage.IndexOf(": ");
-                            messageContent = selectedMessage.Substring(separatorIndex + 2);
-                        }
-                        else
-                        {
-                            messageContent = selectedMessage; // Nếu không chứa dấu phân cách, lấy toàn bộ chuỗi
-                        }
+                            string messageContent = selectedMessage.Substring("You: ".Length);
 
-                        // Gửi lệnh xóa về server
-                        byte[] deleteCommand = Encoding.UTF8.GetBytes($"DELETE|{currentUser}|{nickname}|{messageContent}");
-                        clientSocket.Send(deleteCommand);
-                    }
-                };
+                            // Gửi lệnh xóa về server
+                            byte[] deleteCommand = Encoding.UTF8.GetBytes($"DELETE|{currentUser}|{nickname}|{messageContent}");
+                            clientSocket.Send(deleteCommand);
+                        }
+                    };
 
-                cm.MenuItems.Add(deleteItem);
-                cm.Show(listBoxMessengerShow, e.Location);
+                    cm.MenuItems.Add(deleteItem);
+                    cm.Show(listBoxMessengerShow, e.Location);
+                }
             }
         }
+
         private void btnSend_Click(object sender, EventArgs e)
         {
             if (clientSocket != null && clientSocket.Connected && !string.IsNullOrEmpty(txtMessage.Text))

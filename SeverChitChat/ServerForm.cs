@@ -7,6 +7,8 @@ using System.Threading;
 using System.Windows.Forms;
 
 namespace SeverChitChat
+
+
 {
     public partial class ServerForm : Form
     {
@@ -350,7 +352,7 @@ namespace SeverChitChat
                     connectedClients.Clear();
                 }
 
-                txtLog.AppendText("\rServer đã dừng.\n");
+                txtLog.AppendText("\rServer đã dừng.\r\n");
             }
             catch (Exception ex)
             {
